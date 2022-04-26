@@ -1,0 +1,15 @@
+.App {
+  text-align: center;
+}
+
+body {
+  color: white;
+  background-image:url("https://wallpaperaccess.com/full/1626283.jpg");
+  height: 100vh;
+  background-color: black;
+  width: auto;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+}
