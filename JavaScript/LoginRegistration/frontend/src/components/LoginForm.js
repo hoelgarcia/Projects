@@ -44,7 +44,7 @@ const LoginForm = () => {
                     </div>
                     <p className="text-danger">{loginErrors}</p>
 
-                    <input type="submit" value="Login" className="btn btn-secondary mt-3" />
+                    <input type="submit" value="Login" className="btn btn-primary mt-3" />
                 </form>
             </div>
         </div>

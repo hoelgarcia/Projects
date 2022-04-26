@@ -73,7 +73,7 @@ const RegistrationForm = () => {
                         <input type="password" className="form-control" name="confirm" onChange={(e) => setConfirm(e.target.value)}/>
                         <p className="text-danger">{formErrors.confirm?.message}</p> 
                     </div>
-                    <input type="submit" value="Register" className="btn btn-secondary mt-3" />
+                    <input type="submit" value="Register" className="btn btn-primary mt-3" />
                 </form>
             </div>
         </div>

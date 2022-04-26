@@ -5,11 +5,8 @@ import dateFormat from 'dateformat';
 
 
 const Dashboard = (props) => {
-
-
     const history = useHistory();
     const [loggedInUser, setLoggedInUser] = useState({});
-
 
     useEffect(() => {
         axios.get("http://localhost:8000/api/users/getloggedinuser", {withCredentials: true})
