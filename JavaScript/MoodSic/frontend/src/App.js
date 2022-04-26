@@ -79,21 +79,23 @@ const renderArtists = () => {
                     <a href={artist.uri}>View {artist.name} on Spotify</a>
                     <br />
         </div>
+
     ))
 }
 const renderAlbums = () => {
     return albums.map(album =>(
         <div key={album.id}>
-            {album.images.length ? <img width={"100px"} src={album.images[0].url} alt=""/> : <div>No Image</div>}
-            <a href={album.uri}>View {album.name} on Spotify</a>
+                    {album.images.length ? <img width={"100px"} src={album.images[0].url} alt=""/> : <div>No Image</div>}
+                    <br />
+                    <a href={album.uri}>View {album.name} on Spotify</a>
+                    <br />
         </div>
-        
     ))
 }
 
 
 return (
-    <div className="App">
+    <div >
         <Switch>
             <Route exact path="/">
                 <Home/>
@@ -130,15 +132,15 @@ return (
 
             : null
         }
-        <div>
+
         {renderArtists()}
-        </div>
-        <div>
+
+
         {renderAlbums()}
-        </div>
 
 
         
+
 
     </div>
 

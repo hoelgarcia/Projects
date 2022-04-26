@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import dateFormat from 'dateformat';
 
 
 const Dashboard = (props) => {
@@ -35,14 +36,18 @@ const Dashboard = (props) => {
     }
 
     return (
-        <div>
-            <div>
-            <h1>Welcome {loggedInUser.firstName} {loggedInUser.firstName}, you're in the dashboard! congratz on being a registered user!</h1>
-            <button onClick={logout} className="btn btn-info">Logout</button>
+            <div class="card container w-50" >
+                <div class="card-body">
+                    <h5 class="card-title">{loggedInUser.firstName} {loggedInUser.lastName}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Birthday: {dateFormat(loggedInUser.birthday, "mmmm dS, yyyy")}</h6>
+                    <h6 class="card-subtitle mb-2 text-muted">Created account on: {dateFormat(loggedInUser.createdAt, "mmmm dS, yyyy")}</h6>
+                    <h6 class="card-subtitle mb-2 text-muted">Last updated on: {dateFormat(loggedInUser.updatedAt, "mmmm dS, yyyy")}</h6>
+                    <img class="card-text" src={loggedInUser.profilePicture} alt="" height={200} width={200}/>
+                    <br />
+                    <a href="#" class="card-link">Edit Account Info</a>
+                    <button onClick={logout} className="btn btn-danger d-flex ">Logout</button>
+                </div>
             </div>
-
-
-        </div>
     );
 };
 
