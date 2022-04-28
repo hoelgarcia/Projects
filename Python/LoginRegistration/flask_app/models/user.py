@@ -42,6 +42,23 @@ class User:
             is_valid = False
         return is_valid
     
+    @staticmethod
+    def validate_update_user(user):
+        is_valid = True
+        if len(user['user_name']) < 4:
+            flash("Username must be at least 4 characters long.",'update')
+            is_valid = False
+        if len(user['first_name']) < 2:
+            flash("First name must be at least 2 characters long.", 'update')
+            is_valid = False
+        if len(user['last_name']) < 2:
+            flash("Last name must be at least 2 characters long.",'update')
+            is_valid = False
+        if not EMAIL_REGEX.match(user['email']):
+            flash("Email address is not valid.",'update')
+            is_valid = False
+        return is_valid
+    
     # method to save user into DB
     @classmethod
     def save(cls, data):
@@ -73,3 +90,7 @@ class User:
         # get back just ID if you leave it like this
         # gets back all information:
         return cls(results[0])
+    @classmethod
+    def update_user(cls, data):
+        query = "UPDATE users SET user_name = %(user_name)s, first_name = %(first_name)s, last_name = %(last_name)s, email = %(email)s, updated_at = NOW() WHERE id = %(user_id)s;"
+        results = connectToMySQL("LoginRegistrationPython").query_db(query,data)

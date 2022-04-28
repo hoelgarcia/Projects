@@ -3,12 +3,12 @@ from flask import render_template, session, redirect, request, flash
 from flask_bcrypt import Bcrypt
 from flask_app.models.user import User
 bcrypt = Bcrypt(app)
-
+#======================================================================================================================================================
 #landing page for login and registration
 @app.route("/")
 def login_registration_page():
     return render_template("loginregistrationpage.html")
-
+#======================================================================================================================================================
 # process registration
 @app.route("/register", methods = ['POST'])
 def register():
@@ -18,6 +18,7 @@ def register():
     data_email = {
         'email' : request.form['email']
     }
+    
     if User.find_by_email(data_email):
         flash("Email is already in use.",'registration')
         return redirect("/")
@@ -43,6 +44,7 @@ def register():
     user_id = User.save(data)
     session["user_id"] = user_id
     return redirect("/dashboard")
+#======================================================================================================================================================
 # process login
 @app.route("/login", methods = ['POST'])
 def login():
@@ -58,7 +60,8 @@ def login():
         return redirect("/")
     session["user_id"] = user_in_db.id
     return redirect("/dashboard")
-
+#======================================================================================================================================================
+#dashboard page with session check
 @app.route("/dashboard")
 def dashboard():
     if "user_id" in session:
@@ -68,9 +71,43 @@ def dashboard():
         user = User.find_by_id(data)
         return render_template("dashboard.html", user = user)
     else:
+        flash("Please login or register!")
         return redirect("/")
-
+#======================================================================================================================================================
+#clears session redirects to login/reg page
 @app.route("/logout")
 def logout():
     session.clear()
     return redirect("/")
+#======================================================================================================================================================
+#redirects to the edit user page
+@app.route("/edit")
+def edit_user():
+    if "user_id" in session:
+        data = {
+            "id" : session["user_id"]
+        }
+        user = User.find_by_id(data)
+        return render_template("edit.html", user=user)
+    else:
+        flash("Please login or register!")
+        return redirect("/")
+#======================================================================================================================================================
+#updates user information
+@app.route("/update", methods = ["POST"])
+def update_user():
+    if "user_id" not in session:
+        flash("Please login or register!")
+        return redirect("/")
+    if not User.validate_update_user(request.form):
+        return redirect("/edit")
+    data = {
+        "user_name" : request.form["user_name"],
+        "first_name" : request.form["first_name"],
+        "last_name" : request.form["last_name"],
+        "email" : request.form["email"],
+        "user_id" : session["user_id"]
+    }
+    User.update_user(data)
+    return redirect("/dashboard")
+#======================================================================================================================================================
