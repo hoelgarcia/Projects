@@ -74,7 +74,7 @@ class User:
         if len(results) < 1:
             return False
         return cls(results[0])
-    #method to find user by email
+    #method to find user by username
     @classmethod
     def find_by_username(cls, data):
         query = "SELECT * FROM users WHERE user_name = %(user_name)s;"

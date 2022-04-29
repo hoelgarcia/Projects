@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSG - Add Player</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='my_style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light justify-content-between p-2">
+        <div>
+            <a class="fs-2 navbar-brand" href="/home">Team</a>
+            <a class="fs-5 navbar-brand" href="/home">Home</a>
+            <a class="fs-5 navbar-brand" href="/add_player">Add Player</a>
+
+        </div>
+        <div class="form-inline">
+            <a class="btn btn-outline-danger my-2 my-sm-0" href="/logout">Logout</a>
+        </div>
+    </nav>
+
+
+    <div class="row justify-content-around mt-3 ">
+        <div class="col-4 bg-light text-dark rounded p-4">
+        <h1 class="text-center">Add a Player</h1> 
+        {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+        {% if messages %}                            <!-- check if there are any messages -->
+                {% for message in messages %}            <!-- loop through the messages -->
+                    <p style="color:red;">{{message}}</p>                   <!-- display each message in a paragraph tag -->
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <form action="/add_player/post" method="post">
+            <div className="form-group">
+            <label>Jersey Number:</label>
+                <input type="number" value="0" min="0" max="100" name="jersey_number">
+            </div>
+            <div className="form-group">
+            <label>Position:</label>
+                <select name="position">
+                    <option value=""></option>
+                    <option value="Goalkeeper">Goalkeeper</option>
+                    <option value="Defense">Defense</option>
+                    <option value="Midfield">Midfield</option>
+                    <option value="Offense">Offense</option>
+                </select>
+            </div>
+            <div className="form-group">
+            <label>First name:</label>
+                <input type="text" name="first_name">
+            </div>
+            <div className="form-group">
+            <label>Last name:</label>
+                <input type="text" name="last_name">
+            </div>
+            <div className="form-group">
+            <label>Birthday:</label>
+                <input type="date" name="birthday">
+            </div>
+            <div className="form-group">
+            <label>Nationality:</label>
+                <input type="text" name="nationality">
+            </div>
+            <div className="form-group">
+            <label>Height(cm):</label>
+                <input type="number" min="0"  name="height">
+            </div>
+            <div className="form-group">
+            <label>Weight(kg):</label>
+                <input type="number" min="0"  name="weight">
+            </div>
+            <div className="form-group">
+            <label for="dominant_foot">Dominant foot:</label>
+                <select name="dominant_foot">
+                    <option value=""></option>
+                    <option value="Left">Left</option>
+                    <option value="Right">Right</option>
+                </select>
+            </div>
+            <div className="form-group">
+            <label>Previous club:</label>
+                <input type="text" name="previous_club">
+            </div>
+            <div className="form-group">
+            <label>Date Signed:</label>
+                <input type="date" name="date_signed">
+            </div>
+            <div className="form-group">
+            <label>Description:</label>
+                <br>
+                <textarea cols="50" rows="5" name="description"></textarea>
+            </div>
+            <div className="form-group">
+            <label for="website_url">Enter website URL:</label>
+                <input type="url" name="website_url" id="website_url" placeholder="https://example.com" pattern="https://.*" >
+            </div>
+            <div className="form-group">
+            <label>Profile Picture URL:</label>
+                <input type="url" name="profile_picture" id="profile_picture" placeholder="https://example.com" pattern="https://.*" >
+            </div>
+            <input type="submit" value="Add" class="btn btn-primary mt-3 ">
+        </form>
+        </div>
+    </div>
+</div>
+    </body>
+</html>

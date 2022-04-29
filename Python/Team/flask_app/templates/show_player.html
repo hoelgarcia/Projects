@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ player.first_name }} {{ player.last_name }} - Player Info</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='my_style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light justify-content-between p-2">
+        <div>
+            <a class="fs-2 navbar-brand" href="/home">Team</a>
+            <a class="fs-5 navbar-brand" href="/home">Home</a>
+            <a class="fs-5 navbar-brand" href="/add_player">Add Player</a>
+
+        </div>
+        <div class="form-inline">
+            <a class="btn btn-outline-danger my-2 my-sm-0" href="/logout">Logout</a>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col ">
+                <h1>{{ player.first_name }} {{ player.last_name }} #{{ player.jersey_number }}</h1>
+                <p>Birth date: {{ player.birthday.strftime('%h %d, %Y') }}</p>
+                <p>Nationality: {{ player.nationality }}</p>
+                <p>Height: {{ player.height }} cm</p>
+                <p>Weight: {{ player.weight }} kg</p>
+                <p>Skill: {{ player.dominant_foot }} </p>
+                <p>Previous Club: {{ player.previous_club }}</p>
+                <p >Date Signed at <a href="/home">{{player.coach.club_name}}</a>: {{ player.date_signed.strftime('%h %d, %Y') }}</p>
+                <p>Player Description:</p>
+                <div class="box">
+                    <p>{{ player.description }}</p> 
+                </div>
+                <p>Coached By: {{ player.coach.first_name }} {{ player.coach.last_name }}</p>
+                <p><a href="/update/{{ player.id }}">Update Athlete Information</a> | <a href="/delete/{{ player.id }}">Remove From Roster </a></p>
+                <p>Find more information <a href="{{ player.website_url }}">here</a>.</p>
+            </div>
+            <div class="col">
+                <img src="{{ player.profile_picture }}" alt="{{ player.last_name }} pic" width="800" height="800">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

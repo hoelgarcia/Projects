@@ -1,0 +1,18 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+body{
+    background-image: url("https://img.besthqwallpapers.com/Uploads/31-10-2019/110181/paris-saint-germain-fc-golden-logo-ligue-1-blue-metal-background-football.jpg");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    color: white;
+    font-family: "Papyrus";
+
+}
+.box {
+    inline-size: 400px;
+    overflow-wrap: break-word;
+    hyphens: manual;
+}
