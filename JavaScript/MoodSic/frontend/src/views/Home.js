@@ -19,9 +19,11 @@ const Home = (props) =>{
         }
         setToken(token)
     }, [])
-
+    const login = {
+        margin: "25%", marginBottom: "0"
+    }
     return(
-        <div class="bg-1 w-50 ml-0 mr-0 mx-auto text-center">
+        <div class="w-50 text-center" style={login}>
             <h4>In order to gain access to the Spotify API, you must first authorize/verify your Spotify account by logging in.</h4>
                 <a className="btn btn-success" href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>Login to Spotify</a>
         </div>
