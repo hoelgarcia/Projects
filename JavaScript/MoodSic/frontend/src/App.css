@@ -12,7 +12,9 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: auto 100%;
-
+  margin: 0;
+  padding: 0;
+  font-family: "Lucida Handwriting"
 }
 a {
   color: green
