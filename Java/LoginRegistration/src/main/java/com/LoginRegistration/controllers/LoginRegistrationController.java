@@ -37,7 +37,7 @@ public class LoginRegistrationController {
 	        // TO-DO Later -- call a register method in the service 
 	        // to do some extra validations and create a new user!
 	        
-		 	lrserv.register(newUser, result);
+		 	LoginRegistrationUser loginRegistrationUser = lrserv.register(newUser, result);
 		 	
 	        if(result.hasErrors()) {
 	            // Be sure to send in the empty LoginUser before 
@@ -49,8 +49,9 @@ public class LoginRegistrationController {
 	        // No errors! 
 	        // TO-DO Later: Store their ID from the DB in session, 
 	        // in other words, log them in.
-	        session.setAttribute("user_id", newUser.getId());
-	        session.setAttribute("user", newUser.getUserName());
+	        session.setAttribute("user_id", loginRegistrationUser.getId());
+	        session.setAttribute("user_name", loginRegistrationUser.getUserName());
+	        session.setAttribute("user_email", loginRegistrationUser.getEmail());
 	        return "redirect:/dashboard";
 	    }
 	    @PostMapping("/login")
@@ -69,7 +70,8 @@ public class LoginRegistrationController {
 	        // TO-DO Later: Store their ID from the DB in session, 
 	        // in other words, log them in.
 	        session.setAttribute("user_id", loginRegistrationUser.getId());
-	        session.setAttribute("user", newLogin.getEmail());
+	        session.setAttribute("user_name", loginRegistrationUser.getUserName());
+	        session.setAttribute("user_email", newLogin.getEmail());
 	        return "redirect:/dashboard";
 	    }
 	    @GetMapping("/logout")
@@ -78,7 +80,10 @@ public class LoginRegistrationController {
 	    	return "redirect:/";
 	    }
 	    @GetMapping("/dashboard")
-		public String dashboard(Model model) {
+		public String dashboard(Model model, HttpSession session) {
+	    	if (session.getAttribute("user_id") == null) {
+	    		return "redirect:/";
+	    	}
 			// Send our Candies to the JSP using Model model
 //			model.addAttribute("allCands" , candyServ.allCandys());
 			return "dashboard.jsp";

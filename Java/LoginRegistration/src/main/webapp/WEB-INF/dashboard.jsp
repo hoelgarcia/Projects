@@ -23,14 +23,15 @@ pageEncoding="UTF-8"%>
     />
   </head>
   <body>
-    <div class="container">
+    <div class="container" >
       <!-- Beginning of Container -->
-
-      <h1>Welcome <c:out value="${user}"/>!</h1>
+      
+      <h1>Welcome <c:out value="${user_name}"/>!</h1>
+      <h2>Your registered email is <a href="mailto:${user_email}">${user_email}</a>.</h2>
 
       <br />
-      <a href="/dashboard">Dashboard</a>
-      <a href="/logout">Log Out</a>
+      <a class="btn btn-primary" href="/dashboard">Dashboard</a>
+      <a class="btn btn-danger" href="/logout">Log Out</a>
 
     </div>
     <!-- End of Container -->
