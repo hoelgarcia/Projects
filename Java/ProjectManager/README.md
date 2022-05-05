@@ -7,7 +7,7 @@
 ![DashboardPage](https://user-images.githubusercontent.com/97121026/166851000-6be5fd92-324f-402b-a976-b614d7aa2b52.png)
 4) (C)RUD - Create a project page.
 ![CreatingPage](https://user-images.githubusercontent.com/97121026/166851007-9b7ed271-f91b-43c3-8a9f-45527184e30e.png)
-5) Dashboard displaying new created project.
+5) Dashboard displaying new created project. Edit/Delete function enabled.
 ![DashboardWitheNewCreate](https://user-images.githubusercontent.com/97121026/166851029-3b829c95-c4f6-4944-a8df-d0140ab4dc52.png)
 6) C(R)UD - Reading one project.
 ![ReadPage](https://user-images.githubusercontent.com/97121026/166851042-51d73912-439d-4c24-a006-96625c25a2b1.png)
