@@ -40,8 +40,6 @@ const Dashboard = (props) => {
                     <h6 class="card-subtitle mb-2 text-muted">Created account on: {dateFormat(loggedInUser.createdAt, "mmmm dS, yyyy")}</h6>
                     <h6 class="card-subtitle mb-2 text-muted">Last updated on: {dateFormat(loggedInUser.updatedAt, "mmmm dS, yyyy")}</h6>
                     <img class="card-text" src={loggedInUser.profilePicture} alt="" height={200} width={200}/>
-                    <br />
-                    <a href="#" class="card-link">Edit Account Info</a>
                     <button onClick={logout} className="btn btn-danger d-flex ">Logout</button>
                 </div>
             </div>
