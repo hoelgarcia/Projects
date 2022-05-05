@@ -1,9 +1,9 @@
-# Project Manager Full Stack Java Application using CRUD!
+# Project Manager Full Stack Java Application using CRUD
 1) Login and Registration Page
-![LoginRegistrationPage](https://user-images.githubusercontent.com/97121026/166850968-7f32faf0-237d-4a04-aff8-dda0d054c936.png)
+![LoginRegistration](https://user-images.githubusercontent.com/97121026/166851418-0f97c752-83e4-4a3b-865c-a0ec7a014908.png)
 2) Registering GitHub Guest User
 ![RegisterUser](https://user-images.githubusercontent.com/97121026/166850979-1ba8736d-6bf9-4155-adaa-dc2e6b482dfb.png)
-3) Dashboard Page Rending All Projects. Ability to update other users' project disabled.
+3) Dashboard Page Rending All Projects. Ability to update other users' projects disabled.
 ![DashboardPage](https://user-images.githubusercontent.com/97121026/166851000-6be5fd92-324f-402b-a976-b614d7aa2b52.png)
 4) (C)RUD - Create a project page.
 ![CreatingPage](https://user-images.githubusercontent.com/97121026/166851007-9b7ed271-f91b-43c3-8a9f-45527184e30e.png)
