@@ -13,7 +13,7 @@ pageEncoding="UTF-8"%>
 <html>
 <head>
     <meta charset="UTF-8" />
-    <title>Welcome to Product Manager!</title>
+    <title>Welcome to Project Manager!</title>
     <!-- Bootstrap -->
     <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -25,7 +25,7 @@ pageEncoding="UTF-8"%>
 <body>
 	<!-- Beginning of Container -->
 	<div class="container d-flex justify-content-center">
-		<h1><span style="color: blue">Welcome to Product Manager!</span></h1>
+		<h1><span style="color: blue">Welcome to Project Manager!</span></h1>
 	</div>
 	<div class="container d-flex justify-content-center">
 		<h4>A place for teams to manage projects.</h4>
