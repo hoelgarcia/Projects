@@ -23,11 +23,11 @@ public class LoginRegistrationService {
         
         // Reject if email is taken (present in database)
     	if(lrrepo.findByEmail(newUser.getEmail()).isPresent()) {
-    		result.rejectValue("email", "Unique", "You cannot email with this email, must use dif email!");
+    		result.rejectValue("email", "Unique", "This email is already in use. Please use another email address!");
     	}
         // Reject if password doesn't match confirmation
         if(!newUser.getPassword().equals(newUser.getConfirm())) {
-        	result.rejectValue("confirm", "Matches", "Your password and confirm password must matchy matchy!!");
+        	result.rejectValue("confirm", "Matches", "Your password and confirm password must match!");
         }
         // Return null if result has errors
         if(result.hasErrors()) {
@@ -44,18 +44,17 @@ public class LoginRegistrationService {
     
     public LoginRegistrationUser login(LoginRegistrationLoginUser newLogin, BindingResult result) {
     	// TO-DO - Reject values:
-        
     	// Find user in the DB by email
         // Reject if NOT present
         Optional<LoginRegistrationUser> potentialUser = lrrepo.findByEmail(newLogin.getEmail());
         if(!potentialUser.isPresent()) {
-        	result.rejectValue("email", "Unique", "We don't know who you are! Email does not exist in the Database!");
+        	result.rejectValue("email", "Unique", "This email does not exist in our system.");
         	return null;
         }
         LoginRegistrationUser lRUser = potentialUser.get();
         // Reject if BCrypt password match fails
         if(!BCrypt.checkpw(newLogin.getPassword(), lRUser.getPassword())) {
-        	result.rejectValue("password", "Matches", "That password does not match the password for this email");
+        	result.rejectValue("password", "Matches", "The password does not match the password for this email.");
         	return null;
         }
         // Return null if result has errors
