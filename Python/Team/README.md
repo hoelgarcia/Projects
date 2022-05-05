@@ -23,3 +23,5 @@
 ![UpdatedReadOnePlayer](https://user-images.githubusercontent.com/97121026/166856646-2aff397a-61d6-4432-9c0e-0f14f7384644.png)
 12) CRU(D) - Delete Route in URL to delete player information from database
 ![DeletedRoute](https://user-images.githubusercontent.com/97121026/166856659-579066c1-f24f-4c68-b6e9-b07274cc29dc.png)
+13) MySQL Database information with player information
+![SQL_DATABASE](https://user-images.githubusercontent.com/97121026/166857016-40720ed4-9135-46f3-9b7c-11a8e6211094.png)
