@@ -2,7 +2,7 @@
 1) Login and Registration Page
 ![LoginRegistration](https://user-images.githubusercontent.com/97121026/166851418-0f97c752-83e4-4a3b-865c-a0ec7a014908.png)
 2) Registering GitHub Guest User
-![RegisterUser](https://user-images.githubusercontent.com/97121026/166850979-1ba8736d-6bf9-4155-adaa-dc2e6b482dfb.png)
+![RegisterUser](https://user-images.githubusercontent.com/97121026/166851716-26642d39-83a4-4793-b9de-eaaaaa136a09.png)
 3) Dashboard Page Rending All Projects. Ability to update other users' projects disabled.
 ![DashboardPage](https://user-images.githubusercontent.com/97121026/166851000-6be5fd92-324f-402b-a976-b614d7aa2b52.png)
 4) (C)RUD - Create a project page.
